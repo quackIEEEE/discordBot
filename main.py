@@ -3,7 +3,8 @@ import os
 import datetime
 from dotenv import load_dotenv
 from discord.ext import commands
-
+from flask import Flask
+from threading import Thread
 
 load_dotenv()
 
@@ -28,4 +29,20 @@ async def countdown(ctx):
     await ctx.send(f"距離2026年2月1日還有{delta}天，考試加油:)")
 
 
-bot.run(token)
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Bot is running!"
+
+def run():
+    app.run(host="0.0.0.0", port=10000)
+
+def keep_alive():
+    t = Thread(target=run)
+    t.start()
+
+if __name__ == "__main__":
+    keep_alive()
+    bot.run(token)
+
