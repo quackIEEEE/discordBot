@@ -12,7 +12,7 @@ token = os.getenv("DISCORD_BOT_TOKEN")
 #要求機器人的權限
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix = "/", intents = intents)
-TARGET_DATE = datetime.date(2026, 2, 5)
+TARGET_DATE = datetime.date(2026, 2, 1)
 
 @bot.event
 # 當機器人完成啟動
@@ -25,7 +25,7 @@ async def on_ready():
 async def countdown(ctx):
     today = datetime.date.today()
     delta = (TARGET_DATE - today).days
-    await ctx.send(f"政大：2/5 \n中興：2/6 \n中央：2/8 \n離考試還剩{delta}天，考試加油:)")
+    await ctx.send(f"成大：2/3 \n政大：2/5 \n中興：2/6 \n中央：2/8 \n離考試還剩{delta}天，考試加油:)")
 
 
 app = Flask(__name__)
@@ -44,6 +44,7 @@ def keep_alive():
 if __name__ == "__main__":
     keep_alive()
     bot.run(token)
+
 
 
 
