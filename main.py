@@ -25,7 +25,7 @@ async def on_ready():
 async def countdown(ctx):
     today = datetime.date.today()
     delta = (TARGET_DATE - today).days
-    await ctx.send(f"成大：2/3 \n政大：2/5 \n中興：2/6 \n中央：2/8 \n離考試還剩{delta}天，考試加油:)")
+    await ctx.send(f"成大：2/3 \n政大：2/5 \n中興：2/6 \n中央：2/8 \n北科：3/8 (幹有甚麼毛病啦) \n離考試還剩{delta}天，考試加油:)")
 
 
 app = Flask(__name__)
@@ -44,6 +44,7 @@ def keep_alive():
 if __name__ == "__main__":
     keep_alive()
     bot.run(token)
+
 
 
 
